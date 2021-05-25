@@ -21,7 +21,7 @@
 ### First commit
 - Uploading README and .gitignore
 ### second commit
-- initial start on menu
+- Initial start on menu
 ```python
 class Restaurant:
     def __init__(self):
@@ -31,4 +31,31 @@ class Restaurant:
             'Dessert': 'Ice cream' 'Strawberries and cream' 'Cheesecake' 'Fruit bowl',}
         self.order_form = []
 restaurant_features = Restaurant()
+```
+### User story 1 completed
+#### AS a User I want to be able to see the menu in a formatted way, so that I can order my meal. 
+```python
+from restaurant import Restaurant
+class User_Order(Restaurant):
+    def __init__(self, item_ordered):  # function that sets the values
+        # a keyword called SUPER which inherits everything from parent class (Animal) at the time of initialisation of this class
+        super().__init__()
+        self.item_ordered = item_ordered
+
+    def display_menu(self):
+        print('\nStarters:')
+        for food in food_ordered.menu_starter:
+            print(food)
+        print('\nMains:')
+        for food in food_ordered.menu_main:
+            print(food)
+        print('\nDesserts:')
+        for food in food_ordered.menu_dessert:
+            print(food)
+        food_ordered.take_order()
+    def take_order(self):
+        self.item_ordered = input('\nPlease enter the number of the item you would like to order: ')
+food_ordered = User_Order('')
+
+food_ordered.display_menu()
 ```
