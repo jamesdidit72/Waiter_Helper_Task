@@ -9,19 +9,19 @@ class User_Order(Restaurant):
         self.keep_ordering = keep_ordering
 
     def display_menu(self):
-        print('\nStarters:')
-        for food in food_ordered.menu_starter:
+        print('\nStarters:')  # prints statement, \n starts a new line
+        for food in food_ordered.menu_starter:  # loops through the starter list
             print(food)
-        print('\nMains:')
-        for food in food_ordered.menu_main:
+        print('\nMains:')  # prints statement, \n starts a new line
+        for food in food_ordered.menu_main:  # loops through the starter list
             print(food)
-        print('\nDesserts:')
-        for food in food_ordered.menu_dessert:
+        print('\nDesserts:')  # prints statement, \n starts a new line
+        for food in food_ordered.menu_dessert:  # loops through the dessert list
             print(food)
-        food_ordered.take_order()
+        food_ordered.take_order()  # calls the function
 
     def take_order(self):
-        self.item_ordered = input('\nPlease enter the number of the item you would like to order: ')
+        self.item_ordered = input('\nPlease enter the number of the item you would like to order: ')  # generates an input
         food_ordered.check_numbers(self.item_ordered)
 
     def check_numbers(self, item_ordered):
