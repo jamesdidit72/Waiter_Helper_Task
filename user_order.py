@@ -34,11 +34,22 @@ class User_Order(Restaurant):
                 return food_ordered.take_order()
 
     def continue_order(self):
-        if int(self.item_ordered) < 4:
-            food_ordered.order_form.append(food_ordered.menu_starter[int(self.item_ordered)])
+        if int(self.item_ordered) < 3:
+            food_ordered.order_form.append(food_ordered.starter[int(self.item_ordered)])
+            self.keep_ordering = input("Do you want to continue? Y/N:  ")  # collects value from user
+        elif int(self.item_ordered) < 6:
+            food_ordered.order_form.append(food_ordered.main[int(self.item_ordered) - 3])
+            self.keep_ordering = input("Do you want to continue? Y/N:  ")  # collects value from user
+        elif int(self.item_ordered) < 9:
+            food_ordered.order_form.append(food_ordered.dessert[int(self.item_ordered) - 6])
+            self.keep_ordering = input("Do you want to continue? Y/N:  ")  # collects value from user
+        else:
+            print('Please enter a valid number')
             self.keep_ordering = input("Do you want to continue? Y/N:  ")  # collects value from user
         if self.keep_ordering.upper() == 'N':
-             print(f'Youve ordered {food_ordered.order_form}, Enjoy your meal!')
+            print_order = ', '.join(food_ordered.order_form)
+            print(f'Youve ordered: {print_order}, Enjoy your meal!')
+
         else:
             food_ordered.take_order()
 
